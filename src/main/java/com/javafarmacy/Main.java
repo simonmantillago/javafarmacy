@@ -1,7 +1,21 @@
 package com.javafarmacy;
 
+import com.javafarmacy.country.application.CreateCountryUseCase;
+import com.javafarmacy.country.application.FindCountryByIdUseCase;
+import com.javafarmacy.country.application.UpdateCountryUseCase;
+import com.javafarmacy.country.domain.service.CountryService;
+import com.javafarmacy.country.infrastructure.CountryRepository;
+import com.javafarmacy.country.infrastructure.CountryUi.CountryUiController;
+
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        CountryService countryService = new CountryRepository();
+        CreateCountryUseCase createCountryUseCase = new CreateCountryUseCase(countryService);
+        UpdateCountryUseCase updateCountryUseCase = new UpdateCountryUseCase(countryService);
+        FindCountryByIdUseCase findCountryByIdUseCase = new FindCountryByIdUseCase(countryService);
+
+        CountryUiController countryUiController = new CountryUiController(createCountryUseCase, findCountryByIdUseCase,updateCountryUseCase);
+        countryUiController.showCrudOptions();
     }
 }
