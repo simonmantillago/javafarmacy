@@ -1,6 +1,7 @@
 package com.javafarmacy;
 
 import com.javafarmacy.country.application.CreateCountryUseCase;
+import com.javafarmacy.country.application.DeleteCountryUseCase;
 import com.javafarmacy.country.application.FindCountryByIdUseCase;
 import com.javafarmacy.country.application.UpdateCountryUseCase;
 import com.javafarmacy.country.domain.service.CountryService;
@@ -14,8 +15,9 @@ public class Main {
         CreateCountryUseCase createCountryUseCase = new CreateCountryUseCase(countryService);
         UpdateCountryUseCase updateCountryUseCase = new UpdateCountryUseCase(countryService);
         FindCountryByIdUseCase findCountryByIdUseCase = new FindCountryByIdUseCase(countryService);
+        DeleteCountryUseCase deleteCountryUseCase = new DeleteCountryUseCase(countryService);
 
-        CountryUiController countryUiController = new CountryUiController(createCountryUseCase, findCountryByIdUseCase,updateCountryUseCase);
+        CountryUiController countryUiController = new CountryUiController(createCountryUseCase, findCountryByIdUseCase,updateCountryUseCase, deleteCountryUseCase);
         countryUiController.showCrudOptions();
     }
 }

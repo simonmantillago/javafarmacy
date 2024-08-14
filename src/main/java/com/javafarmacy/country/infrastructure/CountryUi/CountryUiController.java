@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.javafarmacy.country.application.CreateCountryUseCase;
+import com.javafarmacy.country.application.DeleteCountryUseCase;
 import com.javafarmacy.country.application.FindCountryByIdUseCase;
 import com.javafarmacy.country.application.UpdateCountryUseCase;
 
@@ -19,15 +20,19 @@ public class CountryUiController {
     private final CreateCountryUseCase createCountryUseCase;
     private final FindCountryByIdUseCase findCountryByIdUseCase;
     private final UpdateCountryUseCase updateCountryUseCase;
+    private final DeleteCountryUseCase deleteCountryUseCase;
     private JFrame frame;
 
     
 
+
+
     public CountryUiController(CreateCountryUseCase createCountryUseCase, FindCountryByIdUseCase findCountryByIdUseCase,
-            UpdateCountryUseCase updateCountryUseCase) {
+            UpdateCountryUseCase updateCountryUseCase, DeleteCountryUseCase deleteCountryUseCase) {
         this.createCountryUseCase = createCountryUseCase;
         this.findCountryByIdUseCase = findCountryByIdUseCase;
         this.updateCountryUseCase = updateCountryUseCase;
+        this.deleteCountryUseCase = deleteCountryUseCase;
     }
 
     public void showCrudOptions() {
@@ -75,6 +80,14 @@ public class CountryUiController {
         });
         buttonPanel.add(btnUpdate);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 15)));
+
+        JButton btnDelete = createStyledButton("Delete Customer", buttonSize, buttonFont);
+        btnDelete.addActionListener(e -> {
+            DeleteCountryUi deleteCustomerUi = new DeleteCountryUi(deleteCountryUseCase, this);
+            deleteCustomerUi.showDeleteCustomer();
+            frame.setVisible(false);
+        });
+        buttonPanel.add(btnDelete);
 
         mainPanel.add(buttonPanel);
         frame.add(mainPanel);
