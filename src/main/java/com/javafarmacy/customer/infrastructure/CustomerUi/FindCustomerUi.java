@@ -91,12 +91,12 @@ public class FindCustomerUi extends JFrame {
                 "Customer found:\n\n" +
                 "ID: %s\n" +
                 "Name: %s\n" +
-                "LastName: %s %s\n" +
-                "City: %d\n" +
+                "LastName: %s\n" +
+                "City: %s\n" +
                 "Email: %s\n" +
                 "BirthDate: %s\n" +
-                "Longitude: %s" +
-                "Latitude: %s",
+                "Longitude: %.2f" +
+                "Latitude: %.2f",
                 customer.getIdcustomer(),
                 customer.getNamecustomer(),
                 customer.getLastnamecustomer(),

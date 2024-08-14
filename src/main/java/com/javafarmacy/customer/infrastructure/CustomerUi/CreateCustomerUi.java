@@ -106,7 +106,7 @@ public class CreateCustomerUi extends JFrame {
         addComponent(new JLabel("Longitude:"), 7, 0);
         addComponent(jTextField7, 7, 1);
         addComponent(new JLabel("Latitude:"), 8, 0);
-        addComponent(jTextField7, 8, 1);
+        addComponent(jTextField8, 8, 1);
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(jButton2);

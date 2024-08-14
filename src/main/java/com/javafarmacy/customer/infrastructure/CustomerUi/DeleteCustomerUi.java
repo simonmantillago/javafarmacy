@@ -86,15 +86,15 @@ public class DeleteCustomerUi extends JFrame {
         Customer deletedCustomer = deleteCustomerUseCase.execute(customerId);
         if (deletedCustomer != null) {
             String message = String.format(
-                "Customer deleted successfully:\n\n" +
+                "Customer found:\n\n" +
                 "ID: %s\n" +
                 "Name: %s\n" +
-                "LastName: %s %s\n" +
-                "City: %d\n" +
+                "LastName: %s\n" +
+                "City: %s\n" +
                 "Email: %s\n" +
-                "BirthDate: %d\n" +
-                "Longitude ID: %d\n" +
-                "Latitude: %s",
+                "BirthDate: %s\n" +
+                "Longitude: %.2f" +
+                "Latitude: %.2f",
                 deletedCustomer.getIdcustomer(),
                 deletedCustomer.getNamecustomer(),
                 deletedCustomer.getLastnamecustomer(),
