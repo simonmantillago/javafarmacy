@@ -46,10 +46,10 @@ private JTextField jTextField1; // ID Number
 
     private void initComponents() {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Create Customer");
+        setTitle("Update Customer");
         setSize(500, 500);
 
-        JLabel jLabel1 = new JLabel("Create Customer");
+        JLabel jLabel1 = new JLabel("Update Customer");
         jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 24));
         jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
         

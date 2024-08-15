@@ -1,4 +1,50 @@
--- Creación de la tabla customer
+DROP DATABASE IF EXISTS javaFarmacy;
+CREATE DATABASE javaFarmacy;
+USE javaFarmacy;
+
+CREATE TABLE modeadminstration (
+    id int AUTO_INCREMENT PRIMARY KEY,
+    descriptionmode varchar(60) NOT NULL
+);
+
+
+CREATE TABLE country (
+    codecountry varchar(5) PRIMARY KEY,
+    namecountry varchar(50) NOT NULL
+);
+
+CREATE TABLE region (
+    codereg varchar(5) PRIMARY KEY,
+    namereg varchar(50) NOT NULL,
+    codecountry varchar(5),
+    FOREIGN KEY (codecountry) REFERENCES country (codecountry)
+);
+
+CREATE TABLE city (
+    codecity varchar(5) PRIMARY KEY,
+    namecity varchar(50) NOT NULL,
+    codereg varchar(5),
+    FOREIGN KEY (codereg) REFERENCES region (codereg)
+);
+
+CREATE TABLE activeprinciple (
+    idap int AUTO_INCREMENT PRIMARY KEY,
+    nameap varchar(60) NOT NULL
+);
+
+CREATE TABLE labatory (
+    id int AUTO_INCREMENT PRIMARY KEY,
+    namelab varchar(50) NOT NULL,
+    codecityreg varchar(5),
+    FOREIGN KEY (codecityreg) REFERENCES city(codecity)
+);
+
+
+CREATE TABLE unitmeasurement (
+    idum int AUTO_INCREMENT PRIMARY KEY,
+    nameum varchar(50) NOT NULL
+);
+
 CREATE TABLE customer (
     idcustomer varchar(20) PRIMARY KEY,
     namecustomer varchar(50) NOT NULL,
@@ -11,29 +57,6 @@ CREATE TABLE customer (
     FOREIGN KEY (codecitycustomer) REFERENCES city (codecity)
 );
 
--- Creación de la tabla city
-CREATE TABLE city (
-    codecity varchar(5) PRIMARY KEY,
-    namecity varchar(50) NOT NULL,
-    codereg varchar(5),
-    FOREIGN KEY (codereg) REFERENCES region (codereg)
-);
-
--- Creación de la tabla country
-CREATE TABLE country (
-    codecountry varchar(5) PRIMARY KEY,
-    namecountry varchar(50) NOT NULL
-);
-
--- Creación de la tabla region
-CREATE TABLE region (
-    codereg varchar(5) PRIMARY KEY,
-    namereg varchar(50) NOT NULL,
-    codecountry varchar(5),
-    FOREIGN KEY (codecountry) REFERENCES country (codecountry)
-);
-
--- Creación de la tabla farmacy
 CREATE TABLE farmacy (
     idfarmacy int AUTO_INCREMENT PRIMARY KEY,
     namefarmacy varchar(60) NOT NULL,
@@ -45,7 +68,6 @@ CREATE TABLE farmacy (
     FOREIGN KEY (codecityfarmacy) REFERENCES city (codecity)
 );
 
--- Creación de la tabla medicine
 CREATE TABLE medicine (
     id int AUTO_INCREMENT PRIMARY KEY,
     proceedings varchar(10),
@@ -60,36 +82,12 @@ CREATE TABLE medicine (
     codeum int4,
     FOREIGN KEY (codemodeadmin) REFERENCES modeadminstration (id),
     FOREIGN KEY (codeap) REFERENCES activeprinciple (idap),
-    FOREIGN KEY (codelab) REFERENCES labotary (id),
+    FOREIGN KEY (codelab) REFERENCES labatory (id),
     FOREIGN KEY (codeum) REFERENCES unitmeasurement (idum)
 );
 
--- Creación de la tabla modeadminstration
-CREATE TABLE modeadminstration (
-    id int AUTO_INCREMENT PRIMARY KEY,
-    descriptionmode varchar(60) NOT NULL
-);
 
--- Creación de la tabla activeprinciple
-CREATE TABLE activeprinciple (
-    idap int AUTO_INCREMENT PRIMARY KEY,
-    nameap varchar(60) NOT NULL
-);
 
--- Creación de la tabla labotary
-CREATE TABLE labotary (
-    id int AUTO_INCREMENT PRIMARY KEY,
-    namelab varchar(50) NOT NULL,
-    codelab varchar(5)
-);
-
--- Creación de la tabla unitmeasurement
-CREATE TABLE unitmeasurement (
-    idum int AUTO_INCREMENT PRIMARY KEY,
-    nameum varchar(50) NOT NULL
-);
-
--- Creación de la tabla farmacymedicine
 CREATE TABLE farmacymedicine (
     idfarmacy int4,
     idmedicinetafrm int4,
