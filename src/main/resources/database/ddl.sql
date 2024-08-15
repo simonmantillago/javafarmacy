@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS javaFarmacy;
 CREATE DATABASE javaFarmacy;
 USE javaFarmacy;
 
-CREATE TABLE modeadminstration (
+CREATE TABLE modeadministration (
     id int AUTO_INCREMENT PRIMARY KEY,
     descriptionmode varchar(60) NOT NULL
 );
@@ -80,7 +80,7 @@ CREATE TABLE medicine (
     namerol varchar(100),
     codelab int4,
     codeum int4,
-    FOREIGN KEY (codemodeadmin) REFERENCES modeadminstration (id),
+    FOREIGN KEY (codemodeadmin) REFERENCES modeadministration (id),
     FOREIGN KEY (codeap) REFERENCES activeprinciple (idap),
     FOREIGN KEY (codelab) REFERENCES labatory (id),
     FOREIGN KEY (codeum) REFERENCES unitmeasurement (idum)

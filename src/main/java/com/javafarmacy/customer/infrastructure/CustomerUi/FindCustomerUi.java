@@ -1,10 +1,10 @@
 package com.javafarmacy.customer.infrastructure.CustomerUi;
 
-import javax.swing.*;
 
 import com.javafarmacy.customer.application.FindCustomerByIdUseCase;
 import com.javafarmacy.customer.domain.entity.Customer;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.Optional;
 

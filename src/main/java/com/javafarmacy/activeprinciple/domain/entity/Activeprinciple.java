@@ -2,6 +2,10 @@ package com.javafarmacy.activeprinciple.domain.entity;
 
 public class Activeprinciple {
     private int idap;
+    public void setIdap(int idap) {
+        this.idap = idap;
+    }
+
     private String nameap;
     
     public Activeprinciple() {

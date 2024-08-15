@@ -80,7 +80,7 @@ public class RegionRepository implements RegionService {
                     region = new Region(
                         rs.getString("codereg"),
                         rs.getString("namereg"),
-                        rs.getString("codeCountryreg")
+                        rs.getString("codeCountry")
                     
                     );
                 }
@@ -106,15 +106,15 @@ public class RegionRepository implements RegionService {
 
     @Override
     public Optional<Region> findRegionById(String codeRegion) {
-        String query = "SELECT codereg, nameregion, codecountry  FROM region WHERE coderegion = ?";
+        String query = "SELECT codereg, namereg, codecountry  FROM region WHERE codereg = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, codeRegion);
             try(ResultSet rs = ps.executeQuery()){
                 if (rs.next()) {
                     Region region = new Region(
-                        rs.getString("codecountry"),
-                        rs.getString("namecountry"),
-                        rs.getString("codecountryreg")
+                        rs.getString("codereg"),
+                        rs.getString("namereg"),
+                        rs.getString("CodeCountry")
                     );
                     return Optional.of(region);
                 }

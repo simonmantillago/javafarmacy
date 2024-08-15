@@ -81,6 +81,15 @@ public class CountryUiController {
         buttonPanel.add(btnUpdate);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 15)));
 
+        JButton btnFind = createStyledButton("Find Country", buttonSize, buttonFont);
+        btnFind.addActionListener(e -> {
+            FindCountryByIdUi findCountryUi = new FindCountryByIdUi(findCountryByIdUseCase, this);
+            findCountryUi.showFindCountry();
+            frame.setVisible(false);
+        });
+        buttonPanel.add(btnFind);
+        buttonPanel.add(Box.createRigidArea(new Dimension(0, 15)));
+
         JButton btnDelete = createStyledButton("Delete Customer", buttonSize, buttonFont);
         btnDelete.addActionListener(e -> {
             DeleteCountryUi deleteCustomerUi = new DeleteCountryUi(deleteCountryUseCase, this);

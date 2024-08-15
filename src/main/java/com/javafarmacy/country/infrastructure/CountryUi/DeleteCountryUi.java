@@ -1,11 +1,11 @@
 package com.javafarmacy.country.infrastructure.CountryUi;
 
 import javax.swing.*;
+import java.awt.*;
 
 import com.javafarmacy.country.application.DeleteCountryUseCase;
 import com.javafarmacy.country.domain.entity.Country;
 
-import java.awt.*;
 
 public class DeleteCountryUi extends JFrame {
     private final DeleteCountryUseCase deleteCountryUseCase;
