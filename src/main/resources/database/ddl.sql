@@ -90,9 +90,9 @@ CREATE TABLE medicine (
 
 CREATE TABLE farmacymedicine (
     idfarmacy int4,
-    idmedicinetafrm int4,
+    idmedicine int4,
     price float8,
-    PRIMARY KEY (idfarmacy, idmedicinetafrm),
+    PRIMARY KEY (idfarmacy, idmedicine),
     FOREIGN KEY (idfarmacy) REFERENCES farmacy (idfarmacy),
-    FOREIGN KEY (idmedicinetafrm) REFERENCES medicine (id)
+    FOREIGN KEY (idmedicine) REFERENCES medicine (id)
 );

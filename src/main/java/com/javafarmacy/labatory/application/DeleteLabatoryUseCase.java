@@ -10,7 +10,7 @@ public class DeleteLabatoryUseCase {
         this.labatoryService = labatoryService;
     }
 
-    public Labatory execute(String codereg){
-        return labatoryService.deleteLabatory(codereg);
+    public Labatory execute(String codelabatory){
+        return labatoryService.deleteLabatory(codelabatory);
     }
 }

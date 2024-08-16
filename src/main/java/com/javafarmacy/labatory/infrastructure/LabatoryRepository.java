@@ -28,7 +28,7 @@ public class LabatoryRepository implements LabatoryService {
     }
     @Override
     public void createLabatory(Labatory labatory) {
-try {
+        try {
             String query = "INSERT INTO labatory (namelab,codecityreg) VALUES (?,?)";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, labatory.getNamelab());

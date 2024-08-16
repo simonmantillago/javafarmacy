@@ -30,7 +30,7 @@ public class FarmacyRepository implements FarmacyService{
     @Override
     public void createFarmacy(Farmacy farmacy) {
 try {
-            String query = "INSERT INTO farmacy (namefarmacy,addessfarmacy,longitude,latfarmacy,codecityfarmacy,logofarm) VALUES (?,?,?,?,?,?)";
+            String query = "INSERT INTO farmacy (namefarmacy,adressfarmacy,longitude,latfarmacy,codecityfarmacy,logofarmacy) VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, farmacy.getNamefarmacy());
             ps.setString(2, farmacy.getAddressfarmacy());
@@ -52,7 +52,7 @@ try {
 
     @Override
     public void updateFarmacy(Farmacy farmacy) {
-        String query = "UPDATE farmacy SET namefarmacy = ?, addressfarmacy = ?, longitude = ?, latfarmacy = ?, codecityfarmacy = ?, logofarmacy = ? WHERE idfarmacy = ?";
+        String query = "UPDATE farmacy SET namefarmacy = ?, adressfarmacy = ?, longitude = ?, latfarmacy = ?, codecityfarmacy = ?, logofarmacy = ? WHERE idfarmacy = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, farmacy.getNamefarmacy());
             ps.setString(2, farmacy.getAddressfarmacy());
@@ -89,7 +89,7 @@ try {
                         farmacy = new Farmacy(
                             rs.getInt("idfarmacy"),
                             rs.getString("namefarmacy"),
-                            rs.getString("addressfarmacy"),
+                            rs.getString("adressfarmacy"),
                             rs.getFloat("longitude"),
                             rs.getFloat("latfarmacy"),
                             rs.getString("codecityfarmacy"),
@@ -118,7 +118,7 @@ try {
 
     @Override
     public Optional<Farmacy> findFarmacyById(String codeFarmacy) {
-            String query = "SELECT idfarmacy,namefarmacy,addressfarmacy,longitude,latfarmacy,codecityfarmacy,logofarmacy FROM farmacy WHERE idfarmacy = ?";
+            String query = "SELECT idfarmacy,namefarmacy,adressfarmacy,longitude,latfarmacy,codecityfarmacy,logofarmacy FROM farmacy WHERE idfarmacy = ?";
             try (PreparedStatement ps = connection.prepareStatement(query)) {
                 ps.setString(1, codeFarmacy);
                 try (ResultSet rs = ps.executeQuery()) {
@@ -126,7 +126,7 @@ try {
                         Farmacy farmacy = new Farmacy(
                             rs.getInt("idfarmacy"),
                             rs.getString("namefarmacy"),
-                            rs.getString("addressfarmacy"),
+                            rs.getString("adressfarmacy"),
                             rs.getFloat("longitude"),
                             rs.getFloat("latfarmacy"),
                             rs.getString("codecityfarmacy"),

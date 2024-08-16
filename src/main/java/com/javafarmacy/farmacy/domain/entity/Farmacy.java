@@ -10,7 +10,7 @@ public class Farmacy {
     private String logofarmacy;
     
     public Farmacy(int idfarmacy, String namefarmacy, String addressfarmacy, float longitude, float latfarmacy,
-            String codecityfarm, String logofarmacy) {
+    String codecityfarm, String logofarmacy) {
         this.idfarmacy = idfarmacy;
         this.namefarmacy = namefarmacy;
         this.addressfarmacy = addressfarmacy;
@@ -19,7 +19,10 @@ public class Farmacy {
         this.codecityfarm = codecityfarm;
         this.logofarmacy = logofarmacy;
     }
-
+    
+    public void setIdfarmacy(int idfarmacy) {
+        this.idfarmacy = idfarmacy;
+    }
     public Farmacy() {
     }
 
